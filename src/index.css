@@ -1,9 +1,16 @@
 :root{
-    --radius-board: 30px;
-     --board-margin: 200px;
-     --board-padding: 50px;
+    --radius-board: 3rem;
+     --board-margin: 15rem;
+     --board-padding: 2rem;
      --black: #000000;
      --white: #ffffff;
      --light-blue: #55AFEF;
      --blue: #4083E9;
-   }
+     --inner-radius: calc(var(--radius-board) - var(--board-padding));
+     --blur: 10px;
+}
+
+@font-face {
+  font-family: "ADLaM";
+  src: url('./ressources/ADLaM_Display/ADLaMDisplay-Regular.ttf');
+}

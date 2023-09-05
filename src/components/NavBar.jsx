@@ -4,7 +4,12 @@ function NavBar(){
 
     return(
         <div className={navbar.container}>
-            navbar
+            <div className={navbar.logoContainer}>
+                Beefit
+            </div>
+            <div>
+                
+            </div>
         </div>
     )
 }

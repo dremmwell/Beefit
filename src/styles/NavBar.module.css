@@ -1,7 +1,15 @@
 .container{
-    border-radius: var(--radius-board);
+    border-radius: var(--inner-radius);
     border: 1px solid #FFF;
     background: rgba(255, 255, 255, 0.25);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(var(--blur));
     flex-basis: 15%;
+}
+
+.logoContainer{
+    font-family: "ADLaM", Helvetica;
+    font-size: 3.5rem;
+    font-weight: 400;
+    text-align: center;
+    padding: 1.5rem;
 }
