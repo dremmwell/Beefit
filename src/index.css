@@ -1,0 +1,9 @@
+:root{
+    --radius-board: 30px;
+     --board-margin: 200px;
+     --board-padding: 50px;
+     --black: #000000;
+     --white: #ffffff;
+     --light-blue: #55AFEF;
+     --blue: #4083E9;
+   }
