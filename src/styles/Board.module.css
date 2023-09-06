@@ -8,4 +8,6 @@
     display: flex;
     flex-direction: row;
     gap: var(--board-padding);
+    cursor: default;
+    user-select: none;
 }
