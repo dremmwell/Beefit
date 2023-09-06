@@ -7,8 +7,14 @@ function NavBar(){
             <div className={navbar.logoContainer}>
                 Beefit
             </div>
-            <div>
-                
+            <div className={navbar.menues}>
+                <ul>
+                    <li className={navbar.daily}>Daily</li>
+                    <li className={navbar.recipes}>Recipes</li>
+                    <li className={navbar.ingredients}>Ingredients</li>
+                    <li className={navbar.objectives}>Objectives</li>
+                    <li className={navbar.overview}>Overview</li>
+                </ul>
             </div>
         </div>
     )

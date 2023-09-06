@@ -12,5 +12,10 @@
 
 @font-face {
   font-family: "ADLaM";
-  src: url('./ressources/ADLaM_Display/ADLaMDisplay-Regular.ttf');
+  src: url('./ressources/fonts/ADLaMDisplay-Regular.ttf');
+}
+
+@font-face {
+  font-family: "Alata";
+  src: url('./ressources/fonts/Alata-Regular.ttf');
 }
