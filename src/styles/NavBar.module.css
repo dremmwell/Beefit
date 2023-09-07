@@ -34,13 +34,13 @@ li{
     border-radius: 15px;
 }
 
-li:hover{
+li:not(.active):hover{
     background: rgba(255, 255, 255, 0.25);
     backdrop-filter: blur(var(--blur));
     cursor: pointer;
 }
 
-li:active{
+.active{
     background: linear-gradient(90deg, #FFF 0%, rgba(255, 255, 255, 0.60) 90.59%);
 }
 

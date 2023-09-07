@@ -1,11 +1,12 @@
 import content from '../styles/Content.module.css';
 
-function Content(){
+function Daily(){
 
     return(
         <div className={content.container}>
+            Daily
         </div>
     )
 }
 
-export default Content
+export default Daily
