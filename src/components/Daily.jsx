@@ -1,10 +1,10 @@
-import content from '../styles/Content.module.css';
+import daily from '../styles/Daily.module.css';
 
 function Daily(){
 
     return(
-        <div className={content.container}>
-            Daily
+        <div className={daily.container}>
+            Daily Tab
         </div>
     )
 }

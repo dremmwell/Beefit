@@ -1,10 +1,10 @@
-import content from '../styles/Content.module.css';
+import overview from '../styles/Overview.module.css';
 
 function Overview(){
 
     return(
-        <div className={content.container}>
-            Overview
+        <div className={overview.container}>
+            Overview Tab
         </div>
     )
 }

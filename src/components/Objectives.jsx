@@ -1,10 +1,10 @@
-import content from '../styles/Content.module.css';
+import objectives from '../styles/Objectives.module.css';
 
 function Objectives(){
 
     return(
-        <div className={content.container}>
-            Objectives
+        <div className={objectives.container}>
+            Objectives Tab
         </div>
     )
 }

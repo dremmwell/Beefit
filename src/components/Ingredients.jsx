@@ -1,10 +1,10 @@
-import content from '../styles/Content.module.css';
+import ingredients from '../styles/Ingredients.module.css';
 
 function Ingredients(){
 
     return(
-        <div className={content.container}>
-            Ingredients
+        <div className={ingredients.container}>
+            Ingredients Tab
         </div>
     )
 }

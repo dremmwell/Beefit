@@ -1,10 +1,10 @@
-import content from '../styles/Content.module.css';
+import recipes from '../styles/Recipes.module.css';
 
 function Recipes(){
 
     return(
-        <div className={content.container}>
-            Recipes
+        <div className={recipes.container}>
+            Recipes Tab
         </div>
     )
 }
