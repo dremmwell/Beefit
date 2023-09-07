@@ -4,4 +4,58 @@
     background: rgba(255, 255, 255, 0.25);
     backdrop-filter: blur(var(--blur));
     flex-grow: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 20% 1fr auto;
+    gap: 0px 0px; 
+    grid-template-areas: 
+      "title legend"
+      "table table"
+      "search add";
+    padding: 2rem;
+}
+
+.title { 
+    grid-area: title; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: var(--dark-grey);
+    font-family: 'Alata';
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding-bottom: 2rem;
+}
+
+.legend { 
+    grid-area: legend; 
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.legend h1{
+    color: var(--dark-grey);
+    text-align: right;
+    font-family: 'Alata';
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    flex-direction: row;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.table { 
+    grid-area: table;
+    overflow-y: auto;
+}
+.search { 
+    grid-area: search; 
+}
+.add { 
+    grid-area: add; 
 }

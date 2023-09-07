@@ -1,8 +1,11 @@
 :root{
-    --radius-board: 3rem;
-     --board-margin: 15rem;
-     --board-padding: 2rem;
+    --radius-board: 3dvw;
+     --board-margin: 5dvw;
+     --board-padding: 1.5dvw;
      --black: #000000;
+     --dark-grey: #1B1B1B;
+     --light-grey: #8A8899;
+     --light-grey-filter: invert(57%) sepia(9%) saturate(465%) hue-rotate(207deg) brightness(94%) contrast(84%);
      --white: #ffffff;
      --light-blue: #55AFEF;
      --blue: #4083E9;
