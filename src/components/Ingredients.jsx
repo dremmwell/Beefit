@@ -6,8 +6,7 @@ import { useState } from 'react';
 function Ingredients(){
 
     const[ingredientList, setIngredientList] = useState(ingredientData);
-
-    console.log(ingredientList[1]);
+    const[searchTerm, setSearchTerm] = useState("");
 
     return(
         <div className={ingredients.container}>
@@ -18,12 +17,25 @@ function Ingredients(){
                 <h1>Carbs</h1>
                 <h1>Fats</h1>
             </div>
+    
             <div className={ingredients.table}>
-                {ingredientList.map(ingredient => <IngredientBar ingredient={ingredient} key={ingredient.key}/>)}
+                {ingredientList.filter((ingredient)=>{
+                    if(searchTerm == ""){
+                        return ingredient;
+                    }
+                    else if (ingredient.name.toLowerCase().includes(searchTerm.toLowerCase())){
+                        return ingredient;
+                    }
+                }).map((ingredient) => {
+                    return ( 
+                        <IngredientBar ingredient={ingredient} key={ingredient.key}/> 
+                    );
+                })}
             </div>
+
             <div className={ingredients.searchBar}>
                 <div className={ingredients.searchIcon}></div>
-                <input type="text" placeholder= "Search" className={ingredients.searchInput}/>
+                <input type="text" placeholder= "Search" onChange={e=>{setSearchTerm(e.target.value)}} className={ingredients.searchInput}/>
             </div>
                 <button className={ingredients.addIngredient}>+ Add a new ingredient</button>
         </div>
