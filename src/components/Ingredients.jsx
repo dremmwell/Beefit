@@ -26,20 +26,19 @@ function Ingredients(){
             </div>
     
             <div className={ingredients.table}>
-
                 {searchTerm == "" && (
                     ingredientList.map((ingredient) => {
                         return ( 
                             <IngredientBar ingredient={ingredient} key={ingredient.key}/> 
-                        );
-                }))}
-                {searchTerm == "" || (
-                    searchFilter(ingredientList,searchTerm).map((ingredient) => {
-                        return ( 
-                            <IngredientBar ingredient={ingredient} key={ingredient.key}/> 
-                        );
-                }))}
-
+                               );
+                        }))
+                                || (
+                            searchFilter(ingredientList,searchTerm).map((ingredient) => {
+                                return ( 
+                                    <IngredientBar ingredient={ingredient} key={ingredient.key}/> 
+                                    );
+                                }))
+                };
             </div>
 
             <div className={ingredients.searchBar}>
