@@ -6,6 +6,7 @@ const ingredientsData = [
         proteins: '30.1',
         carbs: '0',
         fats: '2',
+        key:'0',
     },
     {
         name: 'Pear',
@@ -14,6 +15,7 @@ const ingredientsData = [
         proteins: '0.12',
         carbs: '50',
         fats: '5',
+        key:'1',
     },
     {
         name: 'Mozzarella',
@@ -22,6 +24,7 @@ const ingredientsData = [
         proteins: '17',
         carbs: '2',
         fats: '18',
+        key:'2',
     },
     {
         name: 'Eggs',
@@ -30,6 +33,7 @@ const ingredientsData = [
         proteins: '6',
         carbs: '0',
         fats: '5',
+        key:'3',
     },
     {
         name: 'Rice',
@@ -38,6 +42,7 @@ const ingredientsData = [
         proteins: '3',
         carbs: '34',
         fats: '14',
+        key:'4',
     },
     {
         name: 'Salmon',
@@ -46,6 +51,7 @@ const ingredientsData = [
         proteins: '21.5',
         carbs: '0',
         fats: '20',
+        key:'5',
     },
     {
         name: 'Sweet Potatoes',
@@ -54,6 +60,7 @@ const ingredientsData = [
         proteins: '2',
         carbs: '17',
         fats: '0',
+        key:'6',
     },
     {
         name: 'Mochi',
@@ -62,6 +69,7 @@ const ingredientsData = [
         proteins: '0.5',
         carbs: '12',
         fats: '3',
+        key:'7',
     },
     {
         name: 'Guiness',
@@ -70,6 +78,7 @@ const ingredientsData = [
         proteins: '1.9',
         carbs: '18',
         fats: '0.3',
+        key:'8',
     },
     {
         name: 'Banana',
@@ -78,5 +87,10 @@ const ingredientsData = [
         proteins: '2',
         carbs: '90',
         fats: '0.1',
+        key:'9',
     },
 ]
+
+const ingredientsDataJSON = JSON.stringify(ingredientsData);
+
+console.log(ingredientsDataJSON);
