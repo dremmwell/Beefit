@@ -7,13 +7,13 @@ function IngredientBar({ingredient}){
         <div className={ingredientBar.bar}>
             <div className={ingredientBar.title}>
                 <div className={ingredientBar.name}>{ingredient.name}</div>
-                <div className={ingredientBar.per}>per 100g</div>
+                <div className={ingredientBar.per}>per {ingredient.per}</div>
             </div>
             <div className={ingredientBar.properties}>
-                <h1>Calories</h1>
-                <h1>Proteines</h1>
-                <h1>Carbs</h1>
-                <h1>Fats</h1>
+                <h1>{ingredient.calories}</h1>
+                <h1>{ingredient.proteins}</h1>
+                <h1>{ingredient.carbs}</h1>
+                <h1>{ingredient.fats}</h1>
             </div>
         </div>
     )
