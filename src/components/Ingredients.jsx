@@ -2,11 +2,18 @@ import ingredients from '../styles/Ingredients.module.css';
 import IngredientBar from './IngredientBar';
 import ingredientData from '../data/ingredientsData.json';
 import { useState } from 'react';
+import { func } from 'prop-types';
 
 function Ingredients(){
 
     const[ingredientList, setIngredientList] = useState(ingredientData);
     const[searchTerm, setSearchTerm] = useState("");
+
+    function searchFilter(ingredientList,searchTerm) {
+        const filteredIngredientList = ingredientList.filter(ingredient=>ingredient.name.toLowerCase().includes(searchTerm.toLowerCase()));
+        console.log(filteredIngredientList);
+        return filteredIngredientList;
+    }
 
     return(
         <div className={ingredients.container}>
@@ -19,18 +26,20 @@ function Ingredients(){
             </div>
     
             <div className={ingredients.table}>
-                {ingredientList.filter((ingredient)=>{
-                    if(searchTerm == ""){
-                        return ingredient;
-                    }
-                    else if (ingredient.name.toLowerCase().includes(searchTerm.toLowerCase())){
-                        return ingredient;
-                    }
-                }).map((ingredient) => {
-                    return ( 
-                        <IngredientBar ingredient={ingredient} key={ingredient.key}/> 
-                    );
-                })}
+
+                {searchTerm == "" && (
+                    ingredientList.map((ingredient) => {
+                        return ( 
+                            <IngredientBar ingredient={ingredient} key={ingredient.key}/> 
+                        );
+                }))}
+                {searchTerm == "" || (
+                    searchFilter(ingredientList,searchTerm).map((ingredient) => {
+                        return ( 
+                            <IngredientBar ingredient={ingredient} key={ingredient.key}/> 
+                        );
+                }))}
+
             </div>
 
             <div className={ingredients.searchBar}>
