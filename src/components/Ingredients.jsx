@@ -1,12 +1,12 @@
 import ingredients from '../styles/Ingredients.module.css';
 import IngredientBar from './IngredientBar';
 import ingredientData from '../data/ingredientsData.json';
-import { useState } from 'react';
-import { func } from 'prop-types';
+import { useState, useEffect } from 'react';
 
 function Ingredients(){
 
     const[ingredientList, setIngredientList] = useState(ingredientData);
+
     const[searchTerm, setSearchTerm] = useState("");
 
     function searchFilter(ingredientList,searchTerm) {
@@ -30,17 +30,16 @@ function Ingredients(){
                     ingredientList.map((ingredient) => {
                         return ( 
                             <IngredientBar ingredient={ingredient} key={ingredient.key}/> 
-                               );
+                               )
                         }))
                                 || (
                             searchFilter(ingredientList,searchTerm).map((ingredient) => {
                                 return ( 
                                     <IngredientBar ingredient={ingredient} key={ingredient.key}/> 
-                                    );
+                                    )
                                 }))
-                };
+                }
             </div>
-
             <div className={ingredients.searchBar}>
                 <div className={ingredients.searchIcon}></div>
                 <input type="text" placeholder= "Search" onChange={e=>{setSearchTerm(e.target.value)}} className={ingredients.searchInput}/>
