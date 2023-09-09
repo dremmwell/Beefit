@@ -2,6 +2,7 @@ import ingredients from '../styles/Ingredients.module.css';
 import IngredientBar from './IngredientBar';
 import ingredientData from '../data/ingredientsData.json';
 import { useState } from 'react';
+import { func } from 'prop-types';
 
 function Ingredients(){
 
@@ -12,6 +13,19 @@ function Ingredients(){
         const filteredIngredientList = ingredientList.filter(ingredient=>ingredient.name.toLowerCase().includes(searchTerm.toLowerCase()));
         console.log(filteredIngredientList);
         return filteredIngredientList;
+    }
+
+    function addIngredient(){
+        const newIngredient = {
+            name: 'BennJerry',
+            per: 'item',
+            calories: '80',
+            proteins: '2',
+            carbs: '90',
+            fats: '0.1',
+            key:'9',
+        };
+        setIngredientList([...ingredientList, newIngredient]);
     }
 
     return(
@@ -44,7 +58,7 @@ function Ingredients(){
                 <div className={ingredients.searchIcon}></div>
                 <input type="text" placeholder= "Search" onChange={e=>{setSearchTerm(e.target.value)}} className={ingredients.searchInput}/>
             </div>
-                <button className={ingredients.addIngredient}>+ Add a new ingredient</button>
+                <button className={ingredients.addIngredient} onClick={addIngredient}>+ Add a new ingredient</button>
         </div>
     )
 }

@@ -4,8 +4,6 @@ function AddIngredientForm(){
 
     return(
         
-        
-
         <div className={addIngredientForm.blur}>
             <div className={addIngredientForm.window}>
                     AddIngredientForm Tab
