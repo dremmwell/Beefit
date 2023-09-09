@@ -2,12 +2,12 @@ import ingredients from '../styles/Ingredients.module.css';
 import IngredientBar from './IngredientBar';
 import ingredientData from '../data/ingredientsData.json';
 import { useState } from 'react';
-import { func } from 'prop-types';
 
 function Ingredients(){
 
     const[ingredientList, setIngredientList] = useState(ingredientData);
     const[searchTerm, setSearchTerm] = useState("");
+    const[userInput, setUserInput] = useState('');
 
     function searchFilter(ingredientList,searchTerm) {
         const filteredIngredientList = ingredientList.filter(ingredient=>ingredient.name.toLowerCase().includes(searchTerm.toLowerCase()));
@@ -16,15 +16,7 @@ function Ingredients(){
     }
 
     function addIngredient(){
-        const newIngredient = {
-            name: 'BennJerry',
-            per: 'item',
-            calories: '80',
-            proteins: '2',
-            carbs: '90',
-            fats: '0.1',
-            key:'9',
-        };
+        const newIngredient = {name: userInput};
         setIngredientList([...ingredientList, newIngredient]);
     }
 
@@ -59,6 +51,7 @@ function Ingredients(){
                 <input type="text" placeholder= "Search" onChange={e=>{setSearchTerm(e.target.value)}} className={ingredients.searchInput}/>
             </div>
                 <button className={ingredients.addIngredient} onClick={addIngredient}>+ Add a new ingredient</button>
+                <input type="text" placeholder= "new" value={userInput} onChange={e => setUserInput(e.target.value)} />
         </div>
     )
 }

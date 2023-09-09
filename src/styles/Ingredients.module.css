@@ -54,8 +54,13 @@
     overflow-y: auto;
 }
 
-.searchBar { 
+.search{
     grid-area: search;
+    display: flex;
+    justify-content: space-between;
+}
+
+.searchBar { 
     border-radius: 20px;
     border: 1px solid var(--white);
     display: flex;
