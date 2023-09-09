@@ -1,0 +1,11 @@
+.blur{
+    height: 100vw;
+    width: 100vw;
+    background-color: black;
+}
+
+.window{
+    height: 500px;
+    width: 500px;
+    background-color: white;
+}

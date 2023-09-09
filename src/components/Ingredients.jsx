@@ -2,7 +2,6 @@ import ingredients from '../styles/Ingredients.module.css';
 import IngredientBar from './IngredientBar';
 import ingredientData from '../data/ingredientsData.json';
 import { useState } from 'react';
-import { func } from 'prop-types';
 
 function Ingredients(){
 
@@ -38,7 +37,7 @@ function Ingredients(){
                                     <IngredientBar ingredient={ingredient} key={ingredient.key}/> 
                                     );
                                 }))
-                };
+                }
             </div>
 
             <div className={ingredients.searchBar}>
