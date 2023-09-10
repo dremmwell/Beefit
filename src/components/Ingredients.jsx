@@ -1,13 +1,16 @@
 import ingredients from '../styles/Ingredients.module.css';
 import IngredientBar from './IngredientBar';
+import AddIngredientForm from './AddIngredientForm';
 import ingredientData from '../data/ingredientsData.json';
 import { useState } from 'react';
+import { func } from 'prop-types';
 
 function Ingredients(){
 
     const[ingredientList, setIngredientList] = useState(ingredientData);
     const[searchTerm, setSearchTerm] = useState("");
     const[userInput, setUserInput] = useState('');
+    const[isFormOpen, setIsFormOpen] = useState(false);
 
     function searchFilter(ingredientList,searchTerm) {
         const filteredIngredientList = ingredientList.filter(ingredient=>ingredient.name.toLowerCase().includes(searchTerm.toLowerCase()));
@@ -15,9 +18,18 @@ function Ingredients(){
         return filteredIngredientList;
     }
 
+    function handleClick(){
+        // addIngredient();
+        displayForm();
+    }
+
     function addIngredient(){
         const newIngredient = {name: userInput};
         setIngredientList([...ingredientList, newIngredient]);
+    }
+
+    function displayForm(){
+        setIsFormOpen(true);
     }
 
     return(
@@ -50,8 +62,9 @@ function Ingredients(){
                 <div className={ingredients.searchIcon}></div>
                 <input type="text" placeholder= "Search" onChange={e=>{setSearchTerm(e.target.value)}} className={ingredients.searchInput}/>
             </div>
-                <button className={ingredients.addIngredient} onClick={addIngredient}>+ Add a new ingredient</button>
+                <button className={ingredients.addIngredient} onClick={handleClick}>+ Add a new ingredient</button>
                 <input type="text" placeholder= "new" value={userInput} onChange={e => setUserInput(e.target.value)} />
+                <AddIngredientForm open={isFormOpen} onClose={() => setIsFormOpen()}/>
         </div>
     )
 }

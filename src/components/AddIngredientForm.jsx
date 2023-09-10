@@ -1,15 +1,18 @@
-import addIngredientForm from '../styles/AddIngredientForm.module.css';
+import React from 'react'
+import addIngredientForm from '../styles/AddIngredientForm.module.css'
+import PropTypes from 'prop-types';
 
-function AddIngredientForm(){
+export default function AddIngredientForm({open, onClose}) {
+    if (!open) return null
 
-    return(
-        
-        <div className={addIngredientForm.blur}>
-            <div className={addIngredientForm.window}>
-                    AddIngredientForm Tab
-            </div>
-        </div>
-    )
+  return (
+    <div>
+      Add Ingredient Form
+      <button onClick={onClose}>Close Form</button>
+    </div>
+  )
 }
 
-export default AddIngredientForm
+AddIngredientForm.propTypes={
+    open: PropTypes.bool,
+}
