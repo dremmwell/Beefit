@@ -3,7 +3,6 @@ import IngredientBar from './IngredientBar';
 import AddIngredientForm from './AddIngredientForm';
 import ingredientData from '../data/ingredientsData.json';
 import { useState } from 'react';
-import { func } from 'prop-types';
 
 function Ingredients(){
 
@@ -64,7 +63,7 @@ function Ingredients(){
             </div>
                 <button className={ingredients.addIngredient} onClick={handleClick}>+ Add a new ingredient</button>
                 <input type="text" placeholder= "new" value={userInput} onChange={e => setUserInput(e.target.value)} />
-                <AddIngredientForm open={isFormOpen} onClose={() => setIsFormOpen()}/>
+                <AddIngredientForm open={isFormOpen} onClose={() => setIsFormOpen()} onSubmit={addIngredient} />
         </div>
     )
 }
