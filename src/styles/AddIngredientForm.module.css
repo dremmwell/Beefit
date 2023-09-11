@@ -18,36 +18,53 @@
     z-index: 2;
     display: flex;
     flex-direction: column;
+    border-radius: 1rem;
+    border: 0.1rem solid var(--white);
+    background: var(--white-gradient);
+    font-family: 'Alata', Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+    width: 25rem;
+    height: fit-content;
+    align-items: center;
+    gap:1rem;
+    padding: 1.5rem;
 }
 
 .title{
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 1.6rem;
 }
 
 .form{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: fit-content(5rem) fit-content(5rem) 1fr;
     grid-column-gap: 0px;
     grid-row-gap: 0px; 
+    width: inherit;
 }
 
----------------------------------------------Grid Cells Divs---------------------------------------
-
 .name{
-    grid-area: 1 / 1 / 2 / 3;
+    grid-row-start: 1;
+    grid-column-start: 1;
+    grid-row-end: 2;
+    grid-column-end: 3;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem 2rem 1rem 2rem;
 }
 
 .per{
     grid-area: 2 / 1 / 3 / 2;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem 0 1rem 2rem;
 }
 
 .gramsPerItem{
@@ -55,26 +72,111 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 0.5rem;
 }
+
 
 .numbers{
     grid-area: 3 / 1 / 4 / 3; 
     display: flex;
-    align-items: center;
+    align-items: end;
     justify-content: center;
     flex-direction: column;
+    gap: 0.7rem;
+    padding: 1rem 2rem 1rem 2rem;
 }
 
----------------------------------------------------Inputs-----------------------------------------
-
-
-
-
-
-.closeButton{
+.numberContainerPerItem{
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: row;
+    gap: 1rem;
+    margin-right: 30%;
+}
+
+.numberContainerPerkg{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 1rem;
+    margin-right: 21.8%;
+}
+
+.nameInput{
+    font-family: 'Alata', Arial, Helvetica, sans-serif;
+    font-weight: 100;
+    background: var(--white);
+    border: none;
+    border-radius: 0.7rem;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+    height: 2rem;
+}
+
+.perSelector{
+    font-family: 'Alata', Arial, Helvetica, sans-serif;
+    font-weight: 100;
+    background: var(--white);
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+    height: 2rem;
+}
+
+.gramsPerItemInput{
+    font-family: 'Alata', Arial, Helvetica, sans-serif;
+    font-weight: 100;
+    background: var(--white);
+    border: none;
+    border-radius: 0.8rem;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+    height: 2rem;
+    width: 4.2rem;
+}
+
+.numberInput{
+    font-family: 'Alata', Arial, Helvetica, sans-serif;
+    font-weight: 100;
+    background: var(--white);
+    border: none;
+    border-radius: 0.8rem;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+    height: 2rem;
+    width: 5rem;
+    display: flex;
+    -moz-appearance: textfield;
+    -webkit-appearance: none;
+    appearance: unset ;
+}
+
+*:focus{
+    outline: 0.15rem solid var(--light-blue);
+}
+
+.closeButton{
+    justify-self: center;
+    border-radius: 2rem;
+    background: var(--button-gradient);
+    border: none;
+    width: 50%;
+    color: #FFF;
+    text-align: center;
+    font-family:'Alata', Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+    height: 2.5rem;
+}
+
+.closeButton:hover{
+    outline: 2px solid var(--black);
+    cursor: pointer;
+    color: var(--black);
+}
+
+.closeButton:active{
+    transform: translateX(1.5px) translateY(1.5px);
+    box-shadow: inset 2px 2px 10px var(--blue);
+
 }
 
 

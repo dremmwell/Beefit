@@ -1,6 +1,6 @@
 import ReactDom from 'react-dom';
 import addIngredientForm from '../styles/AddIngredientForm.module.css'
-import PropTypes, { func } from 'prop-types'
+import PropTypes from 'prop-types'
 import { useState } from 'react';
 
 export default function AddIngredientForm({open, onClose, onSubmit}) {
@@ -40,77 +40,107 @@ export default function AddIngredientForm({open, onClose, onSubmit}) {
                 {selectedFrom == "1" &&  
                     <>
                       <div className={addIngredientForm.numbers}>
-                          <input
-                          className={addIngredientForm.numberInput} type="number"
-                          id="calories"
-                          placeholder="Calories per 100g"
-                          required
-                          maxLength="5"
-                        />
-                        <input
-                          className={addIngredientForm.numberInput} type="number"
-                          id="proteins"
-                          placeholder="Proteins per 100g"
-                          required
-                          maxLength="5"
-                        />
-                        <input
-                          className={addIngredientForm.numberInput} type="number"
-                          id="carbs"
-                          placeholder="Carbohydrates per 100g"
-                          required
-                          maxLength="5"
-                        />
-                        <input
-                          className={addIngredientForm.numberInput} type="number"
-                          id="fats"
-                          placeholder="Fats per 100g"
-                          required
-                          maxLength="5"
-                        />
+                        <div className={addIngredientForm.numberContainerPerkg}>
+                          <label htmlFor={addIngredientForm.numberInput}>Calories</label>
+                              <input
+                              className={addIngredientForm.numberInput} type="number"
+                              id="calories"
+                              placeholder=" per 100g"
+                              required
+                              maxLength="5"
+                            />
+                          <label htmlFor={addIngredientForm.numberInput}>g</label>
+                        </div>
+                        <div className={addIngredientForm.numberContainerPerkg}>
+                            <label htmlFor={addIngredientForm.numberInput}>Proteins</label>
+                            <input
+                              className={addIngredientForm.numberInput} type="number"
+                              id="proteins"
+                              placeholder=" per 100g"
+                              required
+                              maxLength="5"
+                            />
+                            <label htmlFor={addIngredientForm.numberInput}>g</label>
+                        </div>
+                        <div className={addIngredientForm.numberContainerPerkg}>                       
+                            <label htmlFor={addIngredientForm.numberInput}>Carbohydrates</label>
+                            <input
+                              className={addIngredientForm.numberInput} type="number"
+                              id="carbs"
+                              placeholder=" per 100g"
+                              required
+                              maxLength="5"
+                            />
+                            <label htmlFor={addIngredientForm.numberInput}>g</label>
+                        </div>
+                        <div className={addIngredientForm.numberContainerPerkg}>
+                            <label htmlFor={addIngredientForm.numberInput}>Fats</label>
+                            <input
+                              className={addIngredientForm.numberInput} type="number"
+                              id="fats"
+                              placeholder=" per 100g"
+                              required
+                              maxLength="5"
+                            />
+                            <label htmlFor={addIngredientForm.numberInput}>g</label>
+                        </div>
                       </div>
                     </>
                 }
                 {selectedFrom == "2" &&   
                     <>
                       <div className={addIngredientForm.gramsPerItem}>
+                      <label htmlFor={addIngredientForm.gramsPerItemInput}>1 Item =</label>
                         <input
                           className={addIngredientForm.gramsPerItemInput} type="number"
                           id="gramsPerItem"
-                          placeholder="grams per item"
+                          placeholder="grams"
                           required
                           maxLength="10"
                         /> 
+                      <label htmlFor={addIngredientForm.gramsPerItemInput}>g</label>
                       </div>
                       <div className={addIngredientForm.numbers}>
-                        <input
-                          className={addIngredientForm.numberInput} type="number"
-                          id="calories"
-                          placeholder="Calories per item"
-                          required
-                          maxLength="5"
-                        />
-                        <input
-                          className={addIngredientForm.numberInput} type="number"
-                          id="proteins"
-                          placeholder="Proteins per item"
-                          required
-                          maxLength="5"
-                        />
-                        <input
-                          className={addIngredientForm.numberInput} type="number"
-                          id="carbs"
-                          placeholder="Carbohydrates per item"
-                          required
-                          maxLength="5"
-                        />
-                        <input
-                          className={addIngredientForm.numberInput} type="number"
-                          id="fats"
-                          placeholder="Fats per item"
-                          required
-                          maxLength="5"
-                        />
+                        <div className={addIngredientForm.numberContainerPerItem}>
+                          <label htmlFor={addIngredientForm.numberInput}>Calories</label>
+                          <input
+                            className={addIngredientForm.numberInput} type="number"
+                            id="calories"
+                            placeholder="per item"
+                            required
+                            maxLength="5"
+                          />
+                        </div>
+                        <div className={addIngredientForm.numberContainerPerItem}>
+                            <label htmlFor={addIngredientForm.numberInput}>Proteins</label>
+                            <input
+                              className={addIngredientForm.numberInput} type="number"
+                              id="proteins"
+                              placeholder="per item"
+                              required
+                              maxLength="5"
+                            />
+                        </div>
+                        <div className={addIngredientForm.numberContainerPerItem}>
+                            <label htmlFor={addIngredientForm.numberInput}>Carbohydrates</label>
+                            <input
+                              className={addIngredientForm.numberInput} type="number"
+                              id="carbs"
+                              placeholder="per item"
+                              required
+                              maxLength="5"
+                            />
+                        </div>                       
+                        <div className={addIngredientForm.numberContainerPerItem}>
+                            <label htmlFor={addIngredientForm.numberInput}>Fats</label>
+                            <input
+                              className={addIngredientForm.numberInput} type="number"
+                              id="fats"
+                              placeholder="per item"
+                              required
+                              maxLength="5"
+                            />
+                        </div>
                       </div>
                     </>
                 }
