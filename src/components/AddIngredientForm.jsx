@@ -1,12 +1,84 @@
 import ReactDom from 'react-dom';
 import addIngredientForm from '../styles/AddIngredientForm.module.css'
-import PropTypes from 'prop-types'
+import PropTypes, { func } from 'prop-types'
 import { useState } from 'react';
 
 export default function AddIngredientForm({open, onClose, onSubmit}) {
 
-  const [selectedFrom,setSelectedForm] = useState('1');
+  const [selectedForm,setSelectedForm] = useState('100g');
 
+  function handleFormSelection(e){
+    setSelectedForm(e.target.value);
+  }
+
+  const [newIngredient,setNewIngredient] = useState({
+    name :"",
+    per: "",
+    item: "",
+    calories: "",
+    proteins: "",
+    carbs: "",
+    fats: ""
+  })
+
+  function handleNameChange(e){
+    setNewIngredient({
+      ...newIngredient,
+      name: e.target.value
+    });
+  }
+
+  function handlePerChange(e){
+    setNewIngredient({
+      ...newIngredient,
+      per: e.target.value
+    });
+    if(selectedForm == 'item'){
+      setNewIngredient({
+        ...newIngredient,
+        item: ''
+      });
+    }
+  }
+
+  function handleItemChange(e){
+    setNewIngredient({
+      ...newIngredient,
+      item: e.target.value
+    });
+  }
+
+  function handleCaloriesChange(e){
+    setNewIngredient({
+      ...newIngredient,
+      calories: e.target.value
+    });
+  }
+
+  function handleProteinsChange(e){
+    setNewIngredient({
+      ...newIngredient,
+      proteins: e.target.value
+    });
+  }
+
+  function handleCarbsChange(e){
+    setNewIngredient({
+      ...newIngredient,
+      carbs: e.target.value
+    });
+  }
+
+  function handleFatsChange(e){
+    setNewIngredient({
+      ...newIngredient,
+      fats: e.target.value
+    });
+  }
+
+  console.log(newIngredient);
+  console.log(selectedForm);
+ 
   if (!open) return null
 
   return ReactDom.createPortal(
@@ -21,23 +93,24 @@ export default function AddIngredientForm({open, onClose, onSubmit}) {
                   <input
                         className={addIngredientForm.nameInput} type="text"
                         id="name"
-                        placeholder="Ingredient"
+                        placeholder=" Ingredient"
                         required
                         maxLength="50"
+                        onChange={handleNameChange}
                   />
                 </div>
                 <div className={addIngredientForm.per}>
                   <label htmlFor={addIngredientForm.perSelector}>per</label>
                   <select
-                    value={selectedFrom}
-                    onChange={e => setSelectedForm(e.target.value)}
+                    value={selectedForm}
+                    onChange={(e) => {handleFormSelection(e),handlePerChange(e)}}
                     className={addIngredientForm.perSelector}
                   >
-                    <option value="1">100g</option>
-                    <option value="2">item</option>
+                    <option value="100g">100g</option>
+                    <option value="item">item</option>
                   </select>
                 </div>
-                {selectedFrom == "1" &&  
+                {selectedForm == "100g" &&  
                     <>
                       <div className={addIngredientForm.numbers}>
                         <div className={addIngredientForm.numberContainerPerkg}>
@@ -48,6 +121,7 @@ export default function AddIngredientForm({open, onClose, onSubmit}) {
                               placeholder=" per 100g"
                               required
                               maxLength="5"
+                              onChange={handleCaloriesChange}
                             />
                           <label htmlFor={addIngredientForm.numberInput}>g</label>
                         </div>
@@ -59,6 +133,7 @@ export default function AddIngredientForm({open, onClose, onSubmit}) {
                               placeholder=" per 100g"
                               required
                               maxLength="5"
+                              onChange={handleProteinsChange}
                             />
                             <label htmlFor={addIngredientForm.numberInput}>g</label>
                         </div>
@@ -70,6 +145,7 @@ export default function AddIngredientForm({open, onClose, onSubmit}) {
                               placeholder=" per 100g"
                               required
                               maxLength="5"
+                              onChange={handleCarbsChange}
                             />
                             <label htmlFor={addIngredientForm.numberInput}>g</label>
                         </div>
@@ -81,22 +157,24 @@ export default function AddIngredientForm({open, onClose, onSubmit}) {
                               placeholder=" per 100g"
                               required
                               maxLength="5"
+                              onChange={handleFatsChange}
                             />
                             <label htmlFor={addIngredientForm.numberInput}>g</label>
                         </div>
                       </div>
                     </>
                 }
-                {selectedFrom == "2" &&   
+                {selectedForm == "item" &&   
                     <>
                       <div className={addIngredientForm.gramsPerItem}>
                       <label htmlFor={addIngredientForm.gramsPerItemInput}>1 Item =</label>
                         <input
                           className={addIngredientForm.gramsPerItemInput} type="number"
                           id="gramsPerItem"
-                          placeholder="grams"
+                          placeholder=" grams"
                           required
                           maxLength="10"
+                          onChange={handleItemChange}
                         /> 
                       <label htmlFor={addIngredientForm.gramsPerItemInput}>g</label>
                       </div>
@@ -106,9 +184,10 @@ export default function AddIngredientForm({open, onClose, onSubmit}) {
                           <input
                             className={addIngredientForm.numberInput} type="number"
                             id="calories"
-                            placeholder="per item"
+                            placeholder=" per item"
                             required
                             maxLength="5"
+                            onChange={handleCaloriesChange}
                           />
                         </div>
                         <div className={addIngredientForm.numberContainerPerItem}>
@@ -116,9 +195,10 @@ export default function AddIngredientForm({open, onClose, onSubmit}) {
                             <input
                               className={addIngredientForm.numberInput} type="number"
                               id="proteins"
-                              placeholder="per item"
+                              placeholder=" per item"
                               required
                               maxLength="5"
+                              onChange={handleProteinsChange}
                             />
                         </div>
                         <div className={addIngredientForm.numberContainerPerItem}>
@@ -126,9 +206,10 @@ export default function AddIngredientForm({open, onClose, onSubmit}) {
                             <input
                               className={addIngredientForm.numberInput} type="number"
                               id="carbs"
-                              placeholder="per item"
+                              placeholder=" per item"
                               required
                               maxLength="5"
+                              onChange={handleCarbsChange}
                             />
                         </div>                       
                         <div className={addIngredientForm.numberContainerPerItem}>
@@ -136,9 +217,10 @@ export default function AddIngredientForm({open, onClose, onSubmit}) {
                             <input
                               className={addIngredientForm.numberInput} type="number"
                               id="fats"
-                              placeholder="per item"
+                              placeholder=" per item"
                               required
                               maxLength="5"
+                              onChange={handleFatsChange}
                             />
                         </div>
                       </div>

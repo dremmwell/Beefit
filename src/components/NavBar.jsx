@@ -42,7 +42,6 @@ function NavBar({onButtonClick}){
 
 export default NavBar;
 
-
 NavBar.propTypes={
     onButtonClick: PropTypes.func,
 }
