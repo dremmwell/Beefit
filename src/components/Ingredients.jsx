@@ -22,8 +22,8 @@ function Ingredients(){
         displayForm();
     }
 
-    function addIngredient(){
-        const newIngredient = {name: userInput};
+    function addIngredient(newIngredient){
+        console.log(newIngredient);
         setIngredientList([...ingredientList, newIngredient]);
     }
 
@@ -62,8 +62,7 @@ function Ingredients(){
                 <input type="text" placeholder= "Search" onChange={e=>{setSearchTerm(e.target.value)}} className={ingredients.searchInput}/>
             </div>
                 <button className={ingredients.addIngredient} onClick={handleClick}>+ Add a new ingredient</button>
-                <input type="text" placeholder= "new" value={userInput} onChange={e => setUserInput(e.target.value)} />
-                <AddIngredientForm open={isFormOpen} onClose={() => setIsFormOpen()} onSubmit={addIngredient} />
+                <AddIngredientForm open={isFormOpen} onClose={() => setIsFormOpen()} getIngredient={addIngredient} />
         </div>
     )
 }

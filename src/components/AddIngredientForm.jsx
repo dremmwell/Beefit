@@ -3,7 +3,7 @@ import addIngredientForm from '../styles/AddIngredientForm.module.css'
 import PropTypes, { func } from 'prop-types'
 import { useState } from 'react';
 
-export default function AddIngredientForm({open, onClose, onSubmit}) {
+export default function AddIngredientForm({open, onClose, getIngredient}) {
 
   const [selectedForm,setSelectedForm] = useState('100g');
 
@@ -76,8 +76,11 @@ export default function AddIngredientForm({open, onClose, onSubmit}) {
     });
   }
 
-  console.log(newIngredient);
-  console.log(selectedForm);
+  function handleSubmit(e) {
+      e.preventDefault();
+      onClose();
+      getIngredient(newIngredient);
+  }
  
   if (!open) return null
 
@@ -87,7 +90,7 @@ export default function AddIngredientForm({open, onClose, onSubmit}) {
         <div className={addIngredientForm.window} onClick={e => e.stopPropagation()}>
             <div className={addIngredientForm.title}>Add a New Ingredient
             </div>
-            <form action="" className={addIngredientForm.form} id="addIngredientForm">
+            <form action="" className={addIngredientForm.form} id="addIngredientForm" onSubmit={handleSubmit}>
                 <div className={addIngredientForm.name}>
                   <label htmlFor={addIngredientForm.nameInput}>Name</label>
                   <input
@@ -227,7 +230,7 @@ export default function AddIngredientForm({open, onClose, onSubmit}) {
                     </>
                 }
             </form>
-            <button className={addIngredientForm.closeButton} onClick={() => {onSubmit();onClose()}} type="submit" form="addIngredientForm">Add</button>
+            <button className={addIngredientForm.closeButton} type="submit" form="addIngredientForm">Add</button>
         </div>
       </div>
     </>,
@@ -238,5 +241,5 @@ export default function AddIngredientForm({open, onClose, onSubmit}) {
 AddIngredientForm.propTypes={
     open: PropTypes.bool,
     onClose: PropTypes.func,
-    onSubmit: PropTypes.func,
+    getIngredient: PropTypes.func,
 }
