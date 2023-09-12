@@ -7,13 +7,13 @@ import { useState } from 'react';
 function Ingredients(){
 
     const[ingredientList, setIngredientList] = useState(ingredientData);
+
     const[searchTerm, setSearchTerm] = useState("");
     const[userInput, setUserInput] = useState('');
     const[isFormOpen, setIsFormOpen] = useState(false);
 
     function searchFilter(ingredientList,searchTerm) {
         const filteredIngredientList = ingredientList.filter(ingredient=>ingredient.name.toLowerCase().includes(searchTerm.toLowerCase()));
-        console.log(filteredIngredientList);
         return filteredIngredientList;
     }
 
@@ -46,17 +46,16 @@ function Ingredients(){
                     ingredientList.map((ingredient) => {
                         return ( 
                             <IngredientBar ingredient={ingredient} key={ingredient.key}/> 
-                               );
+                               )
                         }))
                                 || (
                             searchFilter(ingredientList,searchTerm).map((ingredient) => {
                                 return ( 
                                     <IngredientBar ingredient={ingredient} key={ingredient.key}/> 
-                                    );
+                                    )
                                 }))
                 }
             </div>
-
             <div className={ingredients.searchBar}>
                 <div className={ingredients.searchIcon}></div>
                 <input type="text" placeholder= "Search" onChange={e=>{setSearchTerm(e.target.value)}} className={ingredients.searchInput}/>
