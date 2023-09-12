@@ -8,11 +8,23 @@ function Ingredients(){
     const[ingredientList, setIngredientList] = useState(ingredientData);
 
     const[searchTerm, setSearchTerm] = useState("");
+    const[isFormOpen, setIsFormOpen] = useState(false);
 
     function searchFilter(ingredientList,searchTerm) {
         const filteredIngredientList = ingredientList.filter(ingredient=>ingredient.name.toLowerCase().includes(searchTerm.toLowerCase()));
-        console.log(filteredIngredientList);
         return filteredIngredientList;
+    }
+
+    function handleClick(){
+        displayForm();
+    }
+
+    function addIngredient(newIngredient){
+        setIngredientList([...ingredientList, newIngredient]);
+    }
+
+    function displayForm(){
+        setIsFormOpen(true);
     }
 
     return(
