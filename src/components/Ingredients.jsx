@@ -9,7 +9,6 @@ function Ingredients(){
     const[ingredientList, setIngredientList] = useState(ingredientData);
 
     const[searchTerm, setSearchTerm] = useState("");
-    const[userInput, setUserInput] = useState('');
     const[isFormOpen, setIsFormOpen] = useState(false);
 
     function searchFilter(ingredientList,searchTerm) {
@@ -18,13 +17,11 @@ function Ingredients(){
     }
 
     function handleClick(){
-        // addIngredient();
         displayForm();
     }
 
     function addIngredient(newIngredient){
         setIngredientList([...ingredientList, newIngredient]);
-        console.log(ingredientList)
     }
 
     function displayForm(){
