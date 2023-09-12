@@ -33,12 +33,6 @@ export default function AddIngredientForm({open, onClose, getIngredient}) {
       ...newIngredient,
       per: e.target.value
     });
-    if(selectedForm == 'item'){
-      setNewIngredient({
-        ...newIngredient,
-        item: ''
-      });
-    }
   }
 
   function handleItemChange(e){

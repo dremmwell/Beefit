@@ -23,8 +23,8 @@ function Ingredients(){
     }
 
     function addIngredient(newIngredient){
-        console.log(newIngredient);
         setIngredientList([...ingredientList, newIngredient]);
+        console.log(ingredientList)
     }
 
     function displayForm(){
