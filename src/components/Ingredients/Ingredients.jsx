@@ -1,7 +1,7 @@
-import ingredients from '../styles/Ingredients.module.css';
+import ingredients from '../../styles/ingredients/Ingredients.module.css';
 import IngredientBar from './IngredientBar';
 import AddIngredientForm from './AddIngredientForm';
-import ingredientData from '../data/ingredientsData.json';
+import ingredientData from '../../data/ingredientsData.json';
 import { useState } from 'react';
 
 function Ingredients(){

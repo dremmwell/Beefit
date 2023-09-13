@@ -1,5 +1,5 @@
 import ReactDom from 'react-dom';
-import addIngredientForm from '../styles/AddIngredientForm.module.css'
+import addIngredientForm from '../../styles/ingredients/AddIngredientForm.module.css'
 import PropTypes, { func } from 'prop-types'
 import { useState } from 'react';
 

@@ -1,8 +1,8 @@
 import board from '../styles/Board.module.css';
 import NavBar from './NavBar';
-import Ingredients from './Ingredients';
+import Ingredients from './Ingredients/Ingredients';
 import Daily from './Daily';
-import Recipes from './Recipes';
+import Recipes from './Recipes/Recipes';
 import Overview from './Overview';
 import Objectives from './Objectives';
 import { useState } from 'react';

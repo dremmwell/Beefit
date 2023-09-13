@@ -54,12 +54,6 @@
     overflow-y: auto;
 }
 
-.search{
-    grid-area: search;
-    display: flex;
-    justify-content: space-between;
-}
-
 .searchBar { 
     border-radius: 20px;
     border: 1px solid var(--white);
@@ -81,7 +75,7 @@
 }
 
 .searchIcon{
-    content: url(../ressources/icons/search.svg);
+    content: url(../../ressources/icons/search.svg);
     transform: scale(0.5);
 }
 

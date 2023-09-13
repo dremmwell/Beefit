@@ -1,4 +1,4 @@
-import ingredientBar from '../styles/IngredientBar.module.css';
+import ingredientBar from '../../styles/ingredients/IngredientBar.module.css'
 import PropTypes from 'prop-types';
 
 function IngredientBar({ingredient}){

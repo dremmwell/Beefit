@@ -1,0 +1,128 @@
+.container{
+    border-radius: var(--inner-radius);
+    border: 1px solid #FFF;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(var(--blur));
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+}
+
+.title { 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: var(--dark-grey);
+    font-family: 'Alata';
+    font-size: 2.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding-bottom: 1rem;
+}
+
+.options{
+    display: flex;
+    justify-content: space-between;
+}
+
+.searchFav{
+    display: flex;
+    gap: 1rem;
+    justify-self: start;
+}
+
+.search { 
+    border-radius: 20px;
+    border: 1px solid var(--white);
+    display: flex;
+    width: 70%;
+    margin-top: 0.5rem;
+}
+
+.searchInput{
+    font-family: 'Alata', Arial, Helvetica, sans-serif;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    width: 85%;
+}
+
+.searchInput:focus{
+    outline: none;
+}
+
+.searchIcon{
+    content: url(../../ressources/icons/search.svg);
+    transform: scale(0.5);
+}
+
+.favorite { 
+    border-radius: 20px;
+    border: 1px solid var(--white);
+    display: flex;
+    width: 70%;
+    margin-top: 0.5rem;
+    width: fit-content;
+}
+
+.favButton:focus{
+    outline: none;
+}
+
+.favButton:hover{
+    cursor: pointer;
+}
+
+.favButton{
+    font-family: 'Alata', Arial, Helvetica, sans-serif;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    width: 85%;
+    text-align: center;
+    margin: auto;
+    margin-right: 1rem ;
+}
+
+.favIcon{
+    content: url(../../ressources/icons/heart.svg);
+    transform: scale(0.5);
+}
+
+.favIconActive{
+    content: url(../../ressources/icons/heart_filled.svg);
+    transform: scale(0.5);
+}
+
+.favIcon:hover{
+    cursor: pointer;
+}
+
+.addRecipe { 
+    grid-area: add;
+    justify-self: end;
+    margin-top: 0.5rem;
+    margin-right: 1.5rem;
+    border-radius: 2rem;
+    background: var(--button-gradient);
+    border: none;
+    width: fit-content;
+    color: #FFF;
+    text-align: center;
+    font-family:'Alata', Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+}
+
+.addRecipe:hover{
+    outline: 2px solid var(--white);
+    cursor: pointer;
+}
+
+.addRecipe:active{
+    transform: translateX(1.5px) translateY(1.5px);
+    box-shadow: inset 2px 2px 10px var(--blue);
+}
