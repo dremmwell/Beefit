@@ -1,0 +1,13 @@
+.container{
+    height: 15rem;
+    width: 15rem;
+    border-radius: 20px;
+    background: var(--white-gradient-60);
+    justify-content: center;
+}
+
+.title{
+    text-align: center;
+    padding-top: 1rem;
+    font-family: 'Alata',Arial, Helvetica, sans-serif;
+}

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import recipes from '../../styles/recipes/Recipes.module.css';
+import RecipeCard from './RecipeCard';
 
 function Recipes(){
 
@@ -25,14 +26,59 @@ function Recipes(){
                             <div className={recipes.searchIcon}></div>
                             <input type="text" placeholder= "Search" onChange={e=>{setSearchTerm(e.target.value)}} className={recipes.searchInput}/>
                         </div>
-                        <div className={recipes.favorite}>
-                            <div className={isActive ? recipes.favIconActive : recipes.favIcon} onClick={handleFavClick}></div>
-                            <div className={recipes.favButton} onClick={handleFavClick}>Favorites</div>
+                        <div className={recipes.favorite} onClick={handleFavClick}>
+                            <div className={isActive ? recipes.favIconActive : recipes.favIcon} ></div>
+                            <div className={recipes.favButton}>Favorites</div>
                         </div>
                     </div>
                 <button className={recipes.addRecipe} onClick={handleAddClick}>+ Add a new Recipe</button>
             </div>
-            <div className={recipes.recipesGrid}></div>
+            <div className={recipes.recipesGrid}>
+                    <RecipeCard />
+                    <RecipeCard /> 
+                    <RecipeCard /> 
+                    <RecipeCard /> 
+                    <RecipeCard /> 
+                    <RecipeCard /> 
+                    <RecipeCard /> 
+                    <RecipeCard /> 
+                    <RecipeCard /> 
+                    <RecipeCard /> 
+                    <RecipeCard />
+                    <RecipeCard />
+                    <RecipeCard />
+                    <RecipeCard /> 
+                    <RecipeCard />
+                    <RecipeCard />
+                    <RecipeCard />
+                    <RecipeCard />
+                    <RecipeCard />
+                    <RecipeCard /> 
+                    <RecipeCard /> 
+                    <RecipeCard />
+                    <RecipeCard />
+                    <RecipeCard /> 
+                    <RecipeCard /> 
+                    <RecipeCard /> 
+                    <RecipeCard /> 
+                    <RecipeCard /> 
+                    <RecipeCard /> 
+                    <RecipeCard /> 
+                    <RecipeCard /> 
+                    <RecipeCard /> 
+                    <RecipeCard />
+                    <RecipeCard />
+                    <RecipeCard />
+                    <RecipeCard /> 
+                    <RecipeCard />
+                    <RecipeCard />
+                    <RecipeCard />
+                    <RecipeCard />
+                    <RecipeCard />
+                    <RecipeCard /> 
+                    <RecipeCard /> 
+                    <RecipeCard />
+            </div>
         </div>
     )
 }
