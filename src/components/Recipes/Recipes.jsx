@@ -15,6 +15,13 @@ function Recipes(){
 
     }
 
+
+    function onWheel (e) {
+        var slider = document.getElementById("slider");
+        e.preventDefault;
+        slider.scrollLeft += e.deltaY;
+    }
+
     return(
         <div className={recipes.container}>
             <div className={recipes.title}>
@@ -33,7 +40,7 @@ function Recipes(){
                     </div>
                 <button className={recipes.addRecipe} onClick={handleAddClick}>+ Add a new Recipe</button>
             </div>
-            <div className={recipes.recipesGrid}>
+            <div className={recipes.recipesGrid} onWheel={onWheel} id="slider">
                     <RecipeCard />
                     <RecipeCard /> 
                     <RecipeCard /> 

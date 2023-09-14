@@ -134,7 +134,7 @@
     overflow-x: auto;
     padding-top: 2rem;
     padding-bottom: 2rem;
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
 @media only screen and (max-height: 930px){

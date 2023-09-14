@@ -1,6 +1,6 @@
 .container{
     height: 15rem;
-    width: 15rem;
+    width: 20rem;
     border-radius: 20px;
     background: var(--white-gradient-60);
     justify-content: center;
