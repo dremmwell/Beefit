@@ -7,7 +7,6 @@ function NavBar({onButtonClick}){
     const handleClick = (button) => {
         setActiveTab(button);
         onButtonClick(button);
-
     };
 
     const [activeTab, setActiveTab] = useState("daily");

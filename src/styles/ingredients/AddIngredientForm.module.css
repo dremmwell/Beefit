@@ -157,7 +157,7 @@
 .closeButton{
     justify-self: center;
     border-radius: 2rem;
-    background: var(--button-gradient);
+    background: var(--button-gradient-blue);
     border: none;
     width: 50%;
     color: #FFF;
