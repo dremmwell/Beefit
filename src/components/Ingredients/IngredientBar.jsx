@@ -7,8 +7,9 @@ function IngredientBar({ingredient}){
     const [expanded, setExpanded] = useState(false);
 
     return(
-        <>
-            <div className={ingredientBar.bar} onClick={() => setExpanded(!expanded)}>
+        <div className={ingredientBar.barContainer}>
+            <div className= {expanded === false ? `${ingredientBar.bar}` : ingredientBar.activeBar}
+                 onClick={() => setExpanded(!expanded)}>
                 <div className={ingredientBar.title}>
                     <div className={ingredientBar.name}>{ingredient.name}</div>
                     <div className={ingredientBar.per}>per {ingredient.per}</div>
@@ -21,9 +22,12 @@ function IngredientBar({ingredient}){
                 </div>
             </div>
             {expanded && (
-                <div> Expanded </div>     
+                <div className={ingredientBar.expanded}>
+                    <button className={ingredientBar.updateButton}>Update Ingredient</button>
+                    <button className={ingredientBar.deleteButton}>Delete Ingredient</button>
+                </div>     
             )}
-        </>
+        </div>
     )
 }
 
