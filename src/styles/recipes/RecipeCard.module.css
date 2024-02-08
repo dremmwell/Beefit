@@ -2,12 +2,32 @@
     height: 15rem;
     width: 20rem;
     border-radius: 20px;
-    background: var(--white-gradient-60);
+    background: var(--white-gradient-40);
     justify-content: center;
+    text-align: center;
+    padding-top: 0.8rem;
+    font-family: 'Alata',Arial, Helvetica, sans-serif;
+    color: var(--black);
+}
+
+.container:hover{
+    background-color: var(--white);
+    transform: scale(1.05);
+    z-index: 100;
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
 }
 
 .title{
     text-align: center;
-    padding-top: 1rem;
-    font-family: 'Alata',Arial, Helvetica, sans-serif;
+    padding-top: 0.8rem;
+}
+
+.recipe{
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    height: 50%;
+    width: 90%;
+    overflow: hidden;
 }

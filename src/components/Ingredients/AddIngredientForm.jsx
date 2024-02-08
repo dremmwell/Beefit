@@ -1,6 +1,6 @@
 import ReactDom from 'react-dom';
 import addIngredientForm from '../../styles/ingredients/AddIngredientForm.module.css'
-import PropTypes, { func } from 'prop-types'
+import PropTypes from 'prop-types'
 import { useState } from 'react';
 
 export default function AddIngredientForm({open, onClose, getIngredient}) {

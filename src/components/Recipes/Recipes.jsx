@@ -15,7 +15,6 @@ function Recipes(){
 
     }
 
-
     function onWheel (e) {
         var slider = document.getElementById("slider");
         e.preventDefault;
@@ -44,47 +43,6 @@ function Recipes(){
                     <RecipeCard />
                     <RecipeCard /> 
                     <RecipeCard /> 
-                    <RecipeCard /> 
-                    <RecipeCard /> 
-                    <RecipeCard /> 
-                    <RecipeCard /> 
-                    <RecipeCard /> 
-                    <RecipeCard /> 
-                    <RecipeCard /> 
-                    <RecipeCard />
-                    <RecipeCard />
-                    <RecipeCard />
-                    <RecipeCard /> 
-                    <RecipeCard />
-                    <RecipeCard />
-                    <RecipeCard />
-                    <RecipeCard />
-                    <RecipeCard />
-                    <RecipeCard /> 
-                    <RecipeCard /> 
-                    <RecipeCard />
-                    <RecipeCard />
-                    <RecipeCard /> 
-                    <RecipeCard /> 
-                    <RecipeCard /> 
-                    <RecipeCard /> 
-                    <RecipeCard /> 
-                    <RecipeCard /> 
-                    <RecipeCard /> 
-                    <RecipeCard /> 
-                    <RecipeCard /> 
-                    <RecipeCard />
-                    <RecipeCard />
-                    <RecipeCard />
-                    <RecipeCard /> 
-                    <RecipeCard />
-                    <RecipeCard />
-                    <RecipeCard />
-                    <RecipeCard />
-                    <RecipeCard />
-                    <RecipeCard /> 
-                    <RecipeCard /> 
-                    <RecipeCard />
             </div>
         </div>
     )

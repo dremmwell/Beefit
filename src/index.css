@@ -14,7 +14,7 @@
      --blur: 10px;
      --button-gradient: linear-gradient(90deg, #55AFEF 0%, #4083E9 100%);
      --white-gradient: linear-gradient(90deg, #FFF 0.15%, rgba(255, 255, 255, 0.80));
-     --white-gradient-60: linear-gradient(90deg, #FFF 0.15%, rgba(255, 255, 255, 0.60));
+     --white-gradient-40: linear-gradient(90deg, #FFF 0.15%, rgba(255, 255, 255, 0.40));
      --pink: #fd0061;
 }
 
