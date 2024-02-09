@@ -1,31 +1,37 @@
 import ingredients from '../../styles/ingredients/Ingredients.module.css';
 import IngredientBar from './IngredientBar';
 import AddIngredientForm from './AddIngredientForm';
-import ingredientData from '../../data/ingredientsData.json';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function Ingredients(){
 
-    const[ingredientList, setIngredientList] = useState(ingredientData);
+    const[ingredientList, setIngredientList] = useState(() => {
+        const savedList = localStorage.getItem('ingredientList');
+        return savedList ? JSON.parse(savedList) : [];
+    });
 
     const[searchTerm, setSearchTerm] = useState("");
     const[isFormOpen, setIsFormOpen] = useState(false);
+
+    useEffect(() => {
+        localStorage.setItem('ingredientList', JSON.stringify(ingredientList));
+    }, [ingredientList]);
+
+    function addIngredient(newIngredient){
+        setIngredientList([...ingredientList, newIngredient]);
+    }
 
     function searchFilter(ingredientList,searchTerm) {
         const filteredIngredientList = ingredientList.filter(ingredient=>ingredient.name.toLowerCase().includes(searchTerm.toLowerCase()));
         return filteredIngredientList;
     }
 
-    function handleClick(){
-        displayForm();
-    }
-
-    function addIngredient(newIngredient){
-        setIngredientList([...ingredientList, newIngredient]);
-    }
-
     function displayForm(){
         setIsFormOpen(true);
+    }
+
+    function handleClick(){
+        displayForm();
     }
 
     return(
