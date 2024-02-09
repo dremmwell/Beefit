@@ -94,6 +94,7 @@ export default function AddIngredientForm({open, onClose, getIngredient}) {
                         required
                         maxLength="50"
                         onChange={handleNameChange}
+                        autoFocus
                   />
                 </div>
                 <div className={addIngredientForm.per}>
