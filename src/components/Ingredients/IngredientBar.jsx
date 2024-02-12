@@ -17,11 +17,11 @@ function IngredientBar({ingredient, onDelete, onUpdate}){
         displayUpdateForm();
     }
 
-    function updateIngredient(){
-
+    function getUpdatedIngredient(updatedIngredient){
+        onUpdate(updatedIngredient);
     }
 
-    return(
+        return(
         <div className={ingredientBar.barContainer}>
             <div className= {expanded === false ? `${ingredientBar.bar}` : ingredientBar.activeBar}
                  onClick={() => setExpanded(!expanded)}>
@@ -38,8 +38,8 @@ function IngredientBar({ingredient, onDelete, onUpdate}){
             </div>
             {expanded && (
                 <div className={ingredientBar.expanded}>
-                    <button className={ingredientBar.updateButton} onClick={handleUpdate}>Update Ingredient</button>
-                    <UpdateIngredientForm ingredient={ingredient} open={isUpdateFormOpen} onClose={() => setIsUpdateFormOpen()} getIngredient={updateIngredient} />
+                    <button className={ingredientBar.updateButton} onClick={() => {handleUpdate(), () => onUpdate(ingredient)}}>Update Ingredient</button>
+                    <UpdateIngredientForm ingredient={ingredient} open={isUpdateFormOpen} onClose={() => setIsUpdateFormOpen()} getIngredient={getUpdatedIngredient} />
                     <button className={ingredientBar.deleteButton} onClick={() => onDelete(ingredient.id)}>Delete Ingredient</button>
                 </div>     
             )}

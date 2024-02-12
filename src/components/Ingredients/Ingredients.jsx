@@ -39,9 +39,9 @@ function Ingredients(){
         setIngredientList(newList);
     }
 
-    function handleUpdate(updatedIngredient, id){
+    function handleUpdate(updatedIngredient){
         const newList = ingredientList.map((item) => {
-            if (item.id === id) {
+            if (item.id === updatedIngredient.id) {
               return updatedIngredient;
             }
             return item;
