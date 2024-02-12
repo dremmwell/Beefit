@@ -1,6 +1,7 @@
 import ingredients from '../../styles/ingredients/Ingredients.module.css';
 import IngredientBar from './IngredientBar';
 import AddIngredientForm from './AddIngredientForm';
+import UpdateIngredientForm from './UpdateIngredientForm'
 import { useEffect, useState } from 'react';
 
 function Ingredients(){
@@ -30,8 +31,13 @@ function Ingredients(){
         setIsFormOpen(true);
     }
 
-    function handleClick(){
+    function handleAddIngredient(){
         displayForm();
+    }
+
+    function handleDelete(id){
+        const newList = ingredientList.filter((item) => item.id !== id);
+        setIngredientList(newList);
     }
 
     return(
@@ -48,13 +54,13 @@ function Ingredients(){
                 {searchTerm == "" && (
                     ingredientList.map((ingredient) => {
                         return ( 
-                            <IngredientBar ingredient={ingredient} key={ingredient.key}/> 
+                            <IngredientBar ingredient={ingredient} key={ingredient.id} onDelete={handleDelete}/> 
                                )
                         }))
                                 || (
                             searchFilter(ingredientList,searchTerm).map((ingredient) => {
                                 return ( 
-                                    <IngredientBar ingredient={ingredient} key={ingredient.key}/> 
+                                    <IngredientBar ingredient={ingredient} key={ingredient.id}/> 
                                     )
                                 }))
                 }
@@ -63,8 +69,9 @@ function Ingredients(){
                 <div className={ingredients.searchIcon}></div>
                 <input type="text" placeholder= "Search" onChange={e=>{setSearchTerm(e.target.value)}} className={ingredients.searchInput}/>
             </div>
-                <button className={ingredients.addIngredient} onClick={handleClick}>+ Add a new ingredient</button>
+                <button className={ingredients.addIngredient} onClick={handleAddIngredient}>+ Add a new ingredient</button>
                 <AddIngredientForm open={isFormOpen} onClose={() => setIsFormOpen()} getIngredient={addIngredient} />
+                <UpdateIngredientForm openopen={isFormOpen} onClose={() => setIsFormOpen()} getIngredient={addIngredient} />
         </div>
     )
 }
