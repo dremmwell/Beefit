@@ -2,9 +2,13 @@ import ingredientBar from '../../styles/ingredients/IngredientBar.module.css'
 import PropTypes from 'prop-types';
 import { useState } from "react";
 
-function IngredientBar({ingredient}){
+function IngredientBar({ingredient, onDelete}){
 
     const [expanded, setExpanded] = useState(false);
+
+    function deleteItem(itemKey){
+
+    }
 
     return(
         <div className={ingredientBar.barContainer}>
@@ -24,7 +28,7 @@ function IngredientBar({ingredient}){
             {expanded && (
                 <div className={ingredientBar.expanded}>
                     <button className={ingredientBar.updateButton}>Update Ingredient</button>
-                    <button className={ingredientBar.deleteButton}>Delete Ingredient</button>
+                    <button className={ingredientBar.deleteButton} onClick={() => onDelete(ingredient.name)}>Delete Ingredient</button>
                 </div>     
             )}
         </div>

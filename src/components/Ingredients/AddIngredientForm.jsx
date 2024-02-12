@@ -2,10 +2,11 @@ import ReactDom from 'react-dom';
 import addIngredientForm from '../../styles/ingredients/AddIngredientForm.module.css'
 import PropTypes from 'prop-types'
 import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 export default function AddIngredientForm({open, onClose, getIngredient}) {
 
-  const [selectedForm,setSelectedForm] = useState('100g');
+  const [selectedForm,setSelectedForm] = useState("100g");
 
   function handleFormSelection(e){
     setSelectedForm(e.target.value);
@@ -18,7 +19,8 @@ export default function AddIngredientForm({open, onClose, getIngredient}) {
     calories: "",
     proteins: "",
     carbs: "",
-    fats: ""
+    fats: "",
+    id:"",
   })
 
   function handleNameChange(e){
@@ -31,7 +33,7 @@ export default function AddIngredientForm({open, onClose, getIngredient}) {
   function handlePerChange(e){
     setNewIngredient({
       ...newIngredient,
-      per: e.target.value
+      per: selectedForm
     });
   }
 
@@ -70,8 +72,17 @@ export default function AddIngredientForm({open, onClose, getIngredient}) {
     });
   }
 
+  function setId(){
+    const id = uuidv4();
+    setNewIngredient({
+      ...newIngredient,
+      id:  id
+    });
+  }
+
   function handleSubmit(e) {
       e.preventDefault();
+      setId();
       onClose();
       getIngredient(newIngredient);
   }
