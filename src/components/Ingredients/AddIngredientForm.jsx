@@ -14,7 +14,7 @@ export default function AddIngredientForm({open, onClose, getIngredient}) {
 
   const [newIngredient,setNewIngredient] = useState({
     name :"",
-    per: "",
+    per: "100g",
     item: "",
     calories: "",
     proteins: "",
@@ -33,7 +33,7 @@ export default function AddIngredientForm({open, onClose, getIngredient}) {
   function handlePerChange(e){
     setNewIngredient({
       ...newIngredient,
-      per: selectedForm
+      per: e.target.value
     });
   }
 
@@ -242,6 +242,7 @@ export default function AddIngredientForm({open, onClose, getIngredient}) {
     </>,
     document.getElementById('portal')
   )
+
 }
 
 AddIngredientForm.propTypes={
