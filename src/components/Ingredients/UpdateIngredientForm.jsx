@@ -12,13 +12,13 @@ export default function UpdateIngredientForm({ingredient, open, onClose, getIngr
   }
 
   const [newIngredient,setNewIngredient] = useState({
-    name :"",
+    name :ingredient.name,
     per: ingredient.per,
-    item: "",
-    calories: "",
-    proteins: "",
-    carbs: "",
-    fats: "",
+    item: ingredient.gramsPerItem,
+    calories: ingredient.calories,
+    proteins: ingredient.proteins,
+    carbs: ingredient.carbs,
+    fats: ingredient.fats,
     id:ingredient.id,
   })
 
@@ -246,7 +246,7 @@ export default function UpdateIngredientForm({ingredient, open, onClose, getIngr
 }
 
 UpdateIngredientForm.propTypes={
-    ingredient: PropTypes.obj,
+    ingredient: PropTypes.object,
     open: PropTypes.bool,
     onClose: PropTypes.func,
     getIngredient: PropTypes.func,
