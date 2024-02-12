@@ -4,9 +4,9 @@ import PropTypes from 'prop-types'
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
-export default function AddIngredientForm({open, onClose, getIngredient}) {
+export default function AddIngredientForm({ingredient, open, onClose, getIngredient}) {
 
-  const [selectedForm,setSelectedForm] = useState("100g");
+  const [selectedForm,setSelectedForm] = useState(ingredient.per);
 
   function handleFormSelection(e){
     setSelectedForm(e.target.value);
@@ -14,7 +14,7 @@ export default function AddIngredientForm({open, onClose, getIngredient}) {
 
   const [newIngredient,setNewIngredient] = useState({
     name :"",
-    per: "100g",
+    per: ingredient.per,
     item: "",
     calories: "",
     proteins: "",
@@ -93,7 +93,7 @@ export default function AddIngredientForm({open, onClose, getIngredient}) {
     <>
       <div className={addIngredientForm.overlay} onClick={onClose}>
         <div className={addIngredientForm.window} onClick={e => e.stopPropagation()}>
-            <div className={addIngredientForm.title}>Add a New Ingredient
+            <div className={addIngredientForm.title}>Update your Ingredient
             </div>
             <form action="" className={addIngredientForm.form} id="addIngredientForm" onSubmit={handleSubmit}>
                 <div className={addIngredientForm.name}>
@@ -106,6 +106,7 @@ export default function AddIngredientForm({open, onClose, getIngredient}) {
                         maxLength="50"
                         onChange={handleNameChange}
                         autoFocus
+                        defaultValue={ingredient.name}
                   />
                 </div>
                 <div className={addIngredientForm.per}>
@@ -131,6 +132,7 @@ export default function AddIngredientForm({open, onClose, getIngredient}) {
                               required
                               maxLength="5"
                               onChange={handleCaloriesChange}
+                              defaultValue={ingredient.calories}
                             />
                           <label htmlFor={addIngredientForm.numberInput}>g</label>
                         </div>
@@ -143,6 +145,7 @@ export default function AddIngredientForm({open, onClose, getIngredient}) {
                               required
                               maxLength="5"
                               onChange={handleProteinsChange}
+                              defaultValue={ingredient.proteins}
                             />
                             <label htmlFor={addIngredientForm.numberInput}>g</label>
                         </div>
@@ -155,6 +158,7 @@ export default function AddIngredientForm({open, onClose, getIngredient}) {
                               required
                               maxLength="5"
                               onChange={handleCarbsChange}
+                              defaultValue={ingredient.carbs}
                             />
                             <label htmlFor={addIngredientForm.numberInput}>g</label>
                         </div>
@@ -167,6 +171,7 @@ export default function AddIngredientForm({open, onClose, getIngredient}) {
                               required
                               maxLength="5"
                               onChange={handleFatsChange}
+                              defaultValue={ingredient.fats}
                             />
                             <label htmlFor={addIngredientForm.numberInput}>g</label>
                         </div>
@@ -184,6 +189,7 @@ export default function AddIngredientForm({open, onClose, getIngredient}) {
                           required
                           maxLength="10"
                           onChange={handleItemChange}
+                          defaultValue={ingredient.gramsPerItem}
                         /> 
                       <label htmlFor={addIngredientForm.gramsPerItemInput}>g</label>
                       </div>
@@ -197,6 +203,7 @@ export default function AddIngredientForm({open, onClose, getIngredient}) {
                             required
                             maxLength="5"
                             onChange={handleCaloriesChange}
+                            defaultValue={ingredient.calories}
                           />
                         </div>
                         <div className={addIngredientForm.numberContainerPerItem}>
@@ -208,6 +215,7 @@ export default function AddIngredientForm({open, onClose, getIngredient}) {
                               required
                               maxLength="5"
                               onChange={handleProteinsChange}
+                              defaultValue={ingredient.proteins}
                             />
                         </div>
                         <div className={addIngredientForm.numberContainerPerItem}>
@@ -219,6 +227,7 @@ export default function AddIngredientForm({open, onClose, getIngredient}) {
                               required
                               maxLength="5"
                               onChange={handleCarbsChange}
+                              defaultValue={ingredient.carbs}
                             />
                         </div>                       
                         <div className={addIngredientForm.numberContainerPerItem}>
@@ -230,13 +239,14 @@ export default function AddIngredientForm({open, onClose, getIngredient}) {
                               required
                               maxLength="5"
                               onChange={handleFatsChange}
+                              defaultValue={ingredient.fats}
                             />
                         </div>
                       </div>
                     </>
                 }
             </form>
-            <button className={addIngredientForm.closeButton} type="submit" form="addIngredientForm">Add</button>
+            <button className={addIngredientForm.closeButton} type="submit" form="addIngredientForm">Update</button>
         </div>
       </div>
     </>,
@@ -246,6 +256,7 @@ export default function AddIngredientForm({open, onClose, getIngredient}) {
 }
 
 AddIngredientForm.propTypes={
+    ingredient: PropTypes.obj,
     open: PropTypes.bool,
     onClose: PropTypes.func,
     getIngredient: PropTypes.func,

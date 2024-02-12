@@ -1,7 +1,6 @@
 import ingredients from '../../styles/ingredients/Ingredients.module.css';
 import IngredientBar from './IngredientBar';
 import AddIngredientForm from './AddIngredientForm';
-import UpdateIngredientForm from './UpdateIngredientForm'
 import { useEffect, useState } from 'react';
 
 function Ingredients(){
@@ -12,7 +11,7 @@ function Ingredients(){
     });
 
     const[searchTerm, setSearchTerm] = useState("");
-    const[isFormOpen, setIsFormOpen] = useState(false);
+    const[isAddFormOpen, setIsAddFormOpen] = useState(false);
 
     useEffect(() => {
         localStorage.setItem('ingredientList', JSON.stringify(ingredientList));
@@ -27,17 +26,27 @@ function Ingredients(){
         return filteredIngredientList;
     }
 
-    function displayForm(){
-        setIsFormOpen(true);
+    function displayAddForm(){
+        setIsAddFormOpen(true);
     }
 
     function handleAddIngredient(){
-        displayForm();
+        displayAddForm();
     }
 
     function handleDelete(id){
         const newList = ingredientList.filter((item) => item.id !== id);
         setIngredientList(newList);
+    }
+
+    function handleUpdate(updatedIngredient, id){
+        const newList = ingredientList.map((item) => {
+            if (item.id === id) {
+              return updatedIngredient;
+            }
+            return item;
+          });
+          setIngredientList(newList);
     }
 
     return(
@@ -54,7 +63,7 @@ function Ingredients(){
                 {searchTerm == "" && (
                     ingredientList.map((ingredient) => {
                         return ( 
-                            <IngredientBar ingredient={ingredient} key={ingredient.id} onDelete={handleDelete}/> 
+                            <IngredientBar ingredient={ingredient} key={ingredient.id} onDelete={handleDelete} onUpdate={handleUpdate}/> 
                                )
                         }))
                                 || (
@@ -70,8 +79,7 @@ function Ingredients(){
                 <input type="text" placeholder= "Search" onChange={e=>{setSearchTerm(e.target.value)}} className={ingredients.searchInput}/>
             </div>
                 <button className={ingredients.addIngredient} onClick={handleAddIngredient}>+ Add a new ingredient</button>
-                <AddIngredientForm open={isFormOpen} onClose={() => setIsFormOpen()} getIngredient={addIngredient} />
-                <UpdateIngredientForm openopen={isFormOpen} onClose={() => setIsFormOpen()} getIngredient={addIngredient} />
+                <AddIngredientForm open={isAddFormOpen} onClose={() => setIsAddFormOpen()} getIngredient={addIngredient} />
         </div>
     )
 }

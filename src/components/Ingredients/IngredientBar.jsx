@@ -1,10 +1,25 @@
 import ingredientBar from '../../styles/ingredients/IngredientBar.module.css'
 import PropTypes from 'prop-types';
+import UpdateIngredientForm from './UpdateIngredientForm'
 import { useState } from "react";
 
 function IngredientBar({ingredient, onDelete, onUpdate}){
 
     const [expanded, setExpanded] = useState(false);
+
+    const[isUpdateFormOpen, setIsUpdateFormOpen] = useState(false);
+
+    function displayUpdateForm(){
+        setIsUpdateFormOpen(true);
+    }
+
+    function handleUpdate(){
+        displayUpdateForm();
+    }
+
+    function updateIngredient(){
+
+    }
 
     return(
         <div className={ingredientBar.barContainer}>
@@ -23,10 +38,12 @@ function IngredientBar({ingredient, onDelete, onUpdate}){
             </div>
             {expanded && (
                 <div className={ingredientBar.expanded}>
-                    <button className={ingredientBar.updateButton} onClick={() => onUpdate(ingredient.id)}>Update Ingredient</button>
+                    <button className={ingredientBar.updateButton} onClick={handleUpdate}>Update Ingredient</button>
+                    <UpdateIngredientForm ingredient={ingredient} open={isUpdateFormOpen} onClose={() => setIsUpdateFormOpen()} getIngredient={updateIngredient} />
                     <button className={ingredientBar.deleteButton} onClick={() => onDelete(ingredient.id)}>Delete Ingredient</button>
                 </div>     
             )}
+
         </div>
     )
 }
